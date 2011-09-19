@@ -1,0 +1,6 @@
+<h3>Hold Up!</h3>
+<p>Are you sure you want to delete <em class="confirmLabel">{label}</em>?</p>
+<div class="actions">
+  <button class="cancel">Cancel</button> 
+  <button class="confirm">Destroy it!</button>
+</div>

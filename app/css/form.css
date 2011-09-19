@@ -1,0 +1,42 @@
+.form {
+  position: relative;
+}
+
+.form input {
+  border: 1px solid #b2b2b2;
+  height: 30px;
+  font-size: 26px;
+  width: 100%;
+  color: #404333;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #DD5F18;
+}
+
+.form button {
+  position: absolute;
+  right: 47px;
+  top: 1px;
+  padding: 0;
+  height: 32px;
+  width: 40px;
+  font-size: 26px;
+  color: #f7f7f7;
+  background-color: #383a2c;
+  border-style: none;
+  border-color: #be5215;
+}
+
+.form input:focus + button {
+  background: #DD5F18;
+}
+
+::-webkit-input-placeholder {
+  color: #bebebe;
+}
+
+:-moz-placeholder {
+  color: #999;
+}

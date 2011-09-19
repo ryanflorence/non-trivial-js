@@ -1,0 +1,4 @@
+<li id="task-{props.id}">
+  <label><input name="{props.id}" type="checkbox" {props.checked}>{props.name}</label> 
+  <button data-id="{props.id}" data-label="{props.name}">✖</button>
+</li>

@@ -1,0 +1,42 @@
+.list {
+  list-style: none;
+}
+
+.list li {
+  padding: 0;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: solid 1px #b2b2b2;
+  width: 100% !important;
+}
+
+.list li:last-child {
+  border-bottom: none;
+}
+
+.list input {
+  margin-right: 10px;
+  vertical-align: text-bottom;
+}
+
+.list button {
+  float: right;
+  clear: both;
+  padding: 4px;
+  font-size: 12px;
+  width: 25px;
+  color: #fff;
+  background-color: #b2b2b2;
+  border-style: none;
+  border-color: #be5215;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.list button:hover {
+  background-color: #fba922;
+}
+
+
+
+

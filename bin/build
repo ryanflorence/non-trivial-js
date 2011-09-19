@@ -1,0 +1,2 @@
+# optimize the app with r.js using build.js for config
+node node_modules/requirejs/bin/r.js -o config/build.js

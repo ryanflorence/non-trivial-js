@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: "Open Sans";
+  background-color: #f7f7f7;
+  color: #404333;
+  font-size: 14px;
+}
+
+form, ul, h1, p, h2 {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.container {
+  min-width: 800px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #404333;
+  color: #f1f1f1;
+  overflow: auto;
+  text-align: justify;
+  text-shadow: 0 1px 1px rgba(45, 48, 50, 0.9);
+  padding-bottom: 50px;
+}
+
+.app {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  padding-top: 180px;
+  overflow: auto;
+}
+
+h1 {
+  font-family: "Luckiest Guy";
+  font-size: 100px;
+  color: #dd5f18;
+  text-shadow: 0 2px 6px rgba(45, 48, 50, 0.9);
+  padding-top: 0px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  color: #dd5f18;
+  text-shadow: 0 2px 6px rgba(45, 48, 50, 0.9);
+}
+
+a {
+  color: #fba922;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

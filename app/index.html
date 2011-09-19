@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv=Content-type content="text/html; charset=utf-8">
+  <title>RequireJS, jQuery, and Publisher</title>
+  <link rel=stylesheet href="css/main.css" type="text/css" media="screen">
+</head>
+<body>
+
+  <div class="container">
+    <div class="about">
+      <h1 class="title">Tasks!</h1>
+      <p>
+        This is a sample JavaScript application <a href="https://github.com/rpflorencer/non-trivial-js/">hosted on github</a> using 
+        <a href="http://requirejs.org">RequireJS</a>, 
+        <a href="http://ryanflorence.com/publisher.js/">Publisher</a>, 
+        <a href="http://jquery.com">jQuery</a>, 
+        <a href="http://akdubya.github.com/dustjs/">Dust</a>,
+        <a href="https://github.com/jquery/qunit">QUnit</a>,
+        <a href="https://github.com/twada/qunit-tap">QUnit-TAP</a> and
+        <a href="http://www.phantomjs.org/">PhantomJS</a>. Addy Osmani has a <a href="http://addyosmani.com/largescalejavascript/">great article</a> describing some of the challenges this application attempts to overcome.  <a href="https://github.com/rpflorencer/non-trivial-js/">Download</a> it from github and read through the <code>app/js</code> source, I hope it'll be insightful.  The repository also contains a README about all the application utilities for testing / building / etc.
+      </p>
+      <p>
+        Yes, this could be done in less than 100 lines of jQuery inside a domready function.  The point is to demonstrate how to build an application that can scale to something really complex. Note that every module is small, and every method is tiny.  It's easy to find and fix a bug in three lines of code.
+      </p>
+
+      <h2>RequireJS - Modular Development with AMD</h2>
+      <p>Writing modules with RequireJS helps keep code organized both in the file system and in the business-logic of the application.  During development, files are loaded asynchronously in the browser. This makes adding new modules completely painless, removing the temptation to do too much in one place (too many verbs, not enough nouns). The moment you recognize a pattern, you can create a new module without a fuss: no configuration, no build scripts.  Debugging is great too, since each file is loaded individually.</p>
+      <p>In production, RequireJS optimizes the application by combining all of the modules into a single, compressed file--without requiring any changes to the application.</p>
+
+      <h2>Publisher</h2>
+      <p>Often, your modules start requiring other modules that aren't really dependencies but rather interactions: if you wave, I'll say <em>Hello!</em>, but you should be able to wave without knowing every person in the world you may ever wave to. You should also be able to wave even if I die. Making each module aware of the others leads to tightly-coupled code that gets error prone and really difficult to maintain.  Enter publisher.</p>
+
+      <p>Some modules have hard dependencies that make sense but keeping dependencies to a minimum provides more reuse.  Rather than coupling our modules together and adding a lot of dependencies, publisher can connect the modules together.  The modules don't even need to know about the publisher object.  The <code>lib</code> directory contains the modules, the <code>src</code> directory defines how the modules interact with each other.</p>
+
+      <p>Building an application this way makes deciding where things go easy.  If the list needs to change when something happens, then you edit the list.js files.  Easy as that.</p>
+
+      <h2>jQuery</h2>
+      <p>Not much to say here.  The world's most popular, simple, and functional DOM library.  In this app, it's been adjusted to work as an AMD module.</p>
+
+      <h2>Dust - Super Fast Templates</h2>
+      <p>Dust provides asynchronous, mustache-like templating for node and the browser.  The templates are compiled into simple functions, so rendering is impressively fast.</p>
+      <p>Rather than keeping templates in JavaScript strings or <code>&lt;script type=&quot;text/html&quot; id=&quot;myTemplate&quot;&gt;&lt;/script&gt;</code> tags, the templates live in the <code>views</code> folder.  The app has a <code>compiletemplates</code> script that uses dust's server-side ability to compile the functions into JavaScript strings for inclusion in the browser.  There's also a script that watches for changes so it gets compiled as the views are developed.</p>
+
+      <h2>Testing with QUnit, TAP, and PhantomJS</h2>
+      <p>QUnit provides a great interface, and simple syntax for testing.  <a href="http://testanything.org">TAP</a> is a great testing protocol that is gaining momentum in the JavaScript community.  You can open up <code>test.html</code> to test in the browser, but sometimes you want to script your testing, consume the output, etc. PhantomJS is a headless WebKit with a JavaScript API.  The exact tests run in the browser can be run from the command line or a script.  If you have it installed, run <code>$ runtests</code> in the root of this repository.</p>
+
+      <a href="http://github.com/rpflorence/non-trivial-js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub"></a>
+    </div>
+
+    <div class="app">
+      <form id="form" class="form">
+        <input name="task" id="input" type="text" placeholder="New Task"> <button type="submit">✚</button>
+      </form>
+
+      <ul id="list" class="list"></ul>
+    </div>
+  </div>
+
+  <script data-main="js/main" src="js/require.js"></script>
+
+</body>
+</html>

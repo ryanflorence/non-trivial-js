@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+var fs = require('fs'),
+    dust = require('dust');
+
+var dir = __dirname + '/../app/views',
+    source = "define(['lib/vendor/dust'], function (dust){ "; // AMD
+
+function compile (filename, index, arr){
+  fs.readFile(dir + '/' + filename, function (err, file){
+    source += dust.compile(file.toString(), filename.replace(/.dust$/, ''));
+    if (arr.length === index + 1) saveSource();
+  });
+}
+
+function saveSource (){
+  source += " return dust });";
+  fs.writeFile(__dirname + '/../app/js/lib/views.js', source, function (err) {
+    if (err) throw err;
+    console.log("# Dust templates compiled and saved successfully");
+  });
+}
+
+fs.readdir(dir, function (err, files){
+  if (err) throw err;
+  files.forEach(compile);
+});
